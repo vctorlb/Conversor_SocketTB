@@ -11,7 +11,7 @@ public class Cliente {
         Socket socket = new Socket("127.0.0.1", 54321);
         
         Scanner sc = new Scanner(System.in);
-        String message = sc.NextLine();
+        String message = sc.nextLine();
         DataOutputStream saida = new DataOutputStream(socket.getOutputStream());
         saida.writeUTF(message);
 
