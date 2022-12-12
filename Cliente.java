@@ -10,14 +10,18 @@ public class Cliente {
        //Abrir conexão utilizando o loopback
         Socket socket = new Socket("127.0.0.1", 54321);
         
+        System.out.println("Digite a Palavra minúscula para conversão.");
         Scanner sc = new Scanner(System.in);
         String message = sc.nextLine();
-        DataOutputStream saida = new DataOutputStream(socket.getOutputStream());
+
+        DataOutputStream saida = new DataOutputStream(socket.getOutputStream()); 
+
         saida.writeUTF(message);
 
         
         DataInputStream entrada = new DataInputStream(socket.getInputStream());
         String novaMensagem = entrada.readUTF();//Receber mensagem em maiúsculo do servidor
+        System.out.println("Palavra Traduzida:");
         System.out.println(novaMensagem); //Mostrar mensagem em maiúsculo no cliente
 
         
